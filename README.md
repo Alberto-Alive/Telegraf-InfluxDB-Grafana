@@ -20,3 +20,20 @@ Telegraf v1.21.4 - Windows Binaries (64-bit)
  12. Check if the service runs by running this command in Powershell Admin: net start
  13. Start telegraf to get data and send data by running this command in Powershell Admin: ./telegraf -config ./telegraf.conf
 
+Graphana v8.4.4 - Windows grafana-enterprise-8.4.4.windows-amd64.msi
+1. Download Graphana for Windows from: https://grafana.com/grafana/download?platform=windows
+2. Extract Graphana in C:/Program Files/Graphana
+3. Run Graphana by running this command in Powershell Admin (run from: C:/Program Files/Graphana/bin): .\grafana-cli.exe
+4. Go to: localhost:3000
+5. To set up InfluxDB on Graphana use the following instructions (we'll sum up in the next steps): https://docs.influxdata.com/influxdb/v2.1/tools/grafana/?t=InfluxQL
+6. Firstly, create a datasource a.k. instruct Graphana where to take your data from: in Graphana >> Configuration >> Data sources >> Add data source >> Select InfluxDB >> Follow setp 7
+7. Set up InfluxDB config on Graphana
+        - HTTP.URL: http://localhost:8086/
+        - HTTP.Access: Server(default)
+        - Custom_HTTP_Headers.Header: Authorization
+        - Custom_HTTP_Headers.Value: Token <Token-that-is-generated-taken-from-InfluxDB-API_Tokens>
+        - InfluxDB_Details.Database: Database_name
+        - InfluxDB_Details.User: User_name
+        - InfluxDB_Details.Password: Password
+        - InfluxDB_Details.HTTP_method: GET
+8. Click Save & test (Alert: Data source is working; if Alert: Error: Bad request >> you would need to check the Custom_HTTP_Headers -> Value should look like: Token y0uR5uP3rSecr3tT0k3n)
