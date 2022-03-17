@@ -40,7 +40,7 @@ Graphana v8.4.4 - Windows grafana-enterprise-8.4.4.windows-amd64.msi
 4. Go to: localhost:3000
 5. To set up InfluxDB on Graphana use the following instructions (we'll sum up in the next steps): https://docs.influxdata.com/influxdb/v2.1/tools/grafana/?t=InfluxQL
 6. Firstly, create a datasource a.k. instruct Graphana where to take your data from: in Graphana >> Configuration >> Data sources >> Add data source >> Select InfluxDB >> Follow setp 7
-7. Set up InfluxDB config on Graphana
+7. Set up InfluxDB config on Graphana (if you select 'Flux' as your query language you can use the same queries from InfluxDB on Graphana)
         - HTTP.URL: http://localhost:8086/
         - HTTP.Access: Server(default)
         - Custom_HTTP_Headers.Header: Authorization
