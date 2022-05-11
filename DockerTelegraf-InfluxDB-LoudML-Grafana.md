@@ -1,6 +1,7 @@
 ```Docker on Windows machine:```
 
 Setting up Telegraf, InfluxDB, LoudML and Grafana on Docker requires the creation of docker-compose.yml file that will pull the images and create a swarm of services that will share a common network.
+Check out this video for setting up LoudML on Grafana: https://www.youtube.com/watch?v=bxfU1N3ut70
 
 docker-compose.yml file:
     - has services: telegraf, influxdb, loudml, grafana.
